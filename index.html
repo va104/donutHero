@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="font.css">
+    <script src="script.js"></script>
+    <script src="donutList.js"></script>
+    <title>Donut Hero</title>
+    <link rel="icon" type="image/x-icon" href="img/donut.ico">
+</head>
+
+<body onload="init()">
+    <div id="main" class="main-header">
+        <div w3-include-html="templates/header.html"></div>
+        <div class="line"></div>
+        <div class="header-container">
+            <div class="header-top">
+                <div class="header-text">
+                    <div class="text-order">
+                        Jetzt bestellen und nach Hause liefern
+                    </div>
+                    <div class="text-donut">
+                        Genieße Deine Lieblingsdonuts
+                    </div>
+                    <div class="donut">
+                        <a href="#donut"> <img src="img/donut.PNG" alt="Donut"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="subheader">
+                <div class="subheader-slope">
+
+                </div>
+                <div class="subheader-img">
+                    <img src="img/header.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-wrapper">
+        <div id="donut" class="section1">
+            <div class="margin-section1">
+                <div class="donut-hero">
+                    <h1>Donut Hero</h1>
+                </div>
+                <span class="rating">
+                    <img src="img/star.png" alt="star">
+                    <img src="img/star.png" alt="star">
+                    <img src="img/star.png" alt="star">
+                    <img src="img/star.png" alt="star">
+                    <img src="img/star.png" alt="star">
+                    <a href="#donut">(3260 Bewertungen)</a>
+                </span>
+            </div>
+            <div class="search-bar noresponsive">
+                <!-- <img src="img/lupe.png" alt="lupe"> -->
+                <div onclick="donutFilter('filterAll-donuts'), colorChange('filterAll-donuts')" id="filterAll-donuts"
+                    class="item">Alle Donuts</div>
+                <div onclick="donutFilter('classic-donut'), colorChange('classic-donut')" id="classic-donut"
+                    class="item">Klassiker</div>
+                <div onclick="donutFilter('sweet-donut'), colorChange('sweet-donut')" id="sweet-donut" class="item">
+                    Süß
+                </div>
+                <div onclick="donutFilter('salty-donut'), colorChange('salty-donut')" id="salty-donut" class="item">
+                    Salzig</div>
+                <div onclick="donutFilter('donut-box'), colorChange('donut-box')" id="donut-box" class="item">
+                    Donut-Boxen</div>
+            </div>
+
+            <!-- Responsive Menu -->
+            <button id="respButton" class="nodisplay search-bar accordion ">Unsere Donuts</button>
+            <div id="respPanel" class="panel">
+                <div onclick="donutFilter('filterAll-donuts'), respDonutMenu('Alle Donuts')" class="item">
+                   Alle Donuts
+                </div>
+                <div onclick="donutFilter('classic-donut'), respDonutMenu('Klassiker')" class="item">
+                    Klassiker
+                </div>
+                <div onclick="donutFilter('sweet-donut'), respDonutMenu('Süß')" class="item">
+                    Süß
+                </div>
+                <div onclick="donutFilter('salty-donut'), respDonutMenu('Salzig')" class="item">
+                    Salzig
+                </div>
+                <div onclick="donutFilter('donut-box'), respDonutMenu('Donut-Boxen')"class="item">
+                    Donut-Boxen
+                </div>
+            </div>
+
+            <div id="dynamicContent">
+
+            </div>
+        </div>
+        <div id="sectionSection" class="section2 overlay-menu">
+            <div id="basket-content" class="d-none">
+                <div class="basket-container ">
+                    <div class="basket">
+                        <img onclick="backToMenu()" id="backToMenu" class="d-none backToMenu" src="img/cross.png"
+                            alt="Back">
+                        <div>Warenkorb</div>
+                        <img src="img/shopping-basket-32.png" alt="basket">
+                    </div>
+                    <!-- Dynamic Content for Basket -->
+                    <div id="shopping-cart">
+                    </div>
+                    <!-- Paying and Delivery -->
+                    <div id="pay-button">
+                    </div>
+                </div>
+            </div>
+            <!-- Just for emtpy basket -->
+            <div id="empty-basket">
+                <div>
+                    <div class="resp-basket">
+                        <img id="respMenu" onclick="backToMenu()" class="d-none backToMenu" src="img/cross.png"
+                            alt="Back">
+                        Warenkorb
+                    </div>
+                    <div class="empty-basket ">
+                        <img src="img/shopping-basket-64.png" alt="basket">
+                        <h3>Dein Warenkorb ist leer!</h3>
+                        <span>Füge Deine Lieblingsdonuts zum Warenkorb hinzu und
+                            lasse sie dir noch heute bequem nach Hause liefern.</span>
+                        <div>Kostenlose Lieferung ab einem Warenwert von 6,95 €</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="pop-up-menu" class="pop-up-menu-bg no-display">
+            <!-- Complete order section and delte item from basket section -->
+
+        </div>
+    </div>
+    <div id="respBasket" class="resp-button">
+        Dein Warenkorb ist leer
+    </div>
+    <div w3-include-html="templates/footer.html"></div>
+</body>
+</html>
